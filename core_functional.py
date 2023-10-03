@@ -21,6 +21,10 @@ def get_core_functions():
                         r"同时分解长句，减少重复，并提供改进建议。请只提供文本的更正版本，避免包括解释。请编辑以下文本" + "\n\n",
             "Suffix":   r"",
         },
+        "网站": {
+            "Prefix":   r"将改网站的任务按功能分开，格式为1.a, 2.b" + "\n\n",
+            "Suffix":   r"",
+        },
         "查找语法错误": {
             "Prefix":   r"Can you help me ensure that the grammar and the spelling is correct? " +
                         r"Do not try to polish the text, if no mistake is found, tell me that this paragraph is good." +

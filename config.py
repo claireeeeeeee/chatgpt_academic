@@ -1,6 +1,12 @@
 # [step 1]>> 例如： API_KEY = "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" （此key无效）
-API_KEY = "sk-此处填API密钥"    # 可同时填写多个API-KEY，用英文逗号分割，例如API_KEY = "sk-openaikey1,sk-openaikey2,fkxxxx-api2dkey1,fkxxxx-api2dkey2"
 
+# tianyang
+#API_KEY = "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,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,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"
+
+#new
+#API_KEY = "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,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,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"
+# cli
+API_KEY = "s321r1z4t5k-0d3Y9Irjz0Z5y0U8WrbpT3BlbkFJ55AU3DaWVj3C8RXjlmcl,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,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"
 # [step 2]>> 改为True应用代理，如果直接在海外服务器部署，此处不修改
 USE_PROXY = False
 if USE_PROXY:

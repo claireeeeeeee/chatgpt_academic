@@ -55,7 +55,6 @@ def 批量翻译PDF文档(txt, llm_kwargs, plugin_kwargs, chatbot, history, sys_
     # 开始正式执行任务
     yield from 解析PDF(file_manifest, project_folder, llm_kwargs, plugin_kwargs, chatbot, history, sys_prompt)
 
-
 def 解析PDF(file_manifest, project_folder, llm_kwargs, plugin_kwargs, chatbot, history, sys_prompt):
     import os
     import tiktoken
@@ -65,7 +64,7 @@ def 解析PDF(file_manifest, project_folder, llm_kwargs, plugin_kwargs, chatbot,
 
         # 读取PDF文件
         file_content, page_one = read_and_clean_pdf_text(fp)
-
+        
         # 递归地切割PDF文件
         from .crazy_utils import breakdown_txt_to_satisfy_token_limit_for_pdf
         from request_llm.bridge_all import model_info
@@ -128,4 +127,4 @@ def 解析PDF(file_manifest, project_folder, llm_kwargs, plugin_kwargs, chatbot,
         if os.path.exists(pdf_path):
             os.remove(pdf_path)
     chatbot.append(("给出输出文件清单", str(generated_conclusion_files)))
-    yield from update_ui(chatbot=chatbot, history=history) # 刷新界面
+    # yield from update_ui(chatbot=chatbot, history=history) # 刷新界面

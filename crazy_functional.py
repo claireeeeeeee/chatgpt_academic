@@ -23,8 +23,14 @@ def get_crazy_functions():
     from crazy_functions.对话历史存档 import 对话历史存档
     from crazy_functions.对话历史存档 import 载入对话历史存档
     from crazy_functions.对话历史存档 import 删除所有本地对话历史记录
-    
     from crazy_functions.批量Markdown翻译 import Markdown英译中
+    from crazy_functions.code_generation_new1 import code_generation_new1
+    from crazy_functions.code_generation_new import code_generation_new
+    from crazy_functions.code_generation_selfs import code_generation_selfs
+    from crazy_functions.code_generation_few import code_generation_few
+    from crazy_functions.code_generation_loop import code_generation_loop
+    from crazy_functions.code_generation_loop2 import code_generation_loop2
+
     function_plugins = {
         "解析整个Python项目": {
             "Color": "stop",    # 按钮颜色
@@ -115,7 +121,18 @@ def get_crazy_functions():
             # HotReload 的意思是热更新，修改函数插件代码后，不需要重启程序，代码直接生效
             "Function": HotReload(高阶功能模板函数)
         },
-
+        "[test] code_generation_new": {
+            # HotReload 的意思是热更新，修改函数插件代码后，不需要重启程序，代码直接生效
+            "Function": HotReload(code_generation_new)
+        },
+        "[test] code_generation_selfs": {
+            # HotReload 的意思是热更新，修改函数插件代码后，不需要重启程序，代码直接生效
+            "Function": HotReload(code_generation_selfs)
+        },
+        "[test] code_generation_loop2": {
+            # HotReload 的意思是热更新，修改函数插件代码后，不需要重启程序，代码直接生效
+            "Function": HotReload(code_generation_loop2)
+        },
     }
     ###################### 第二组插件 ###########################
     # [第二组插件]: 经过充分测试
@@ -192,8 +209,7 @@ def get_crazy_functions():
             "AsButton": False,  # 加入下拉菜单中
             "Function": HotReload(Markdown中译英)
         },
-
-
+        
     })
 
     ###################### 第三组插件 ###########################

@@ -518,6 +518,30 @@ def select_api_key(keys, llm_model):
     api_key = random.choice(avail_key_list) # 随机负载均衡
     return api_key
 
+def choose_appropriate_key(keys, llm_model, index):
+    avail_key_list = []
+    key_list = keys.split(',')
+    
+    if llm_model.startswith('gpt-'):
+        for k in key_list:
+            if is_openai_api_key(k): avail_key_list.append(k)
+
+    if len(avail_key_list) == 0:
+        raise RuntimeError(f"您提供的api-key不满足要求，不包含任何可用于{llm_model}的api-key。您可能选择了错误的模型或请求源。")
+
+    # 根据index返回指定的API密钥
+    if index is not None:
+        if 0 <= index < len(avail_key_list):
+            return avail_key_list[index]
+        else:
+            print("error")
+            return None
+
+    # 如果没有提供index或index超出范围，则输出"error"并返回None
+    print("error")
+    return None
+
+
 def read_env_variable(arg, default_value):
     """
     环境变量可以是 `GPT_ACADEMIC_CONFIG`(优先)，也可以直接是`CONFIG`
